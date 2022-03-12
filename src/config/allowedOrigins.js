@@ -1,4 +1,7 @@
-const allowedHosts = ["localhost:3001"];
+const allowedHosts = [
+  "localhost:3001",
+  "https://socket-chat-client.vercel.app",
+];
 
 const allowedOrigins = allowedHosts
   .map((host) => [
