@@ -35,7 +35,7 @@ io.on("connection", (socket) => {
   });
 
   socket.on("disconnect", () => {
-    console.log(`socket disrsconnected: ${socket.id}`);
+    console.log(`socket disconnected: ${socket.id}`);
 
     const user = users.find((u) => u.socket_id === socket.id);
 
