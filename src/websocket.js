@@ -20,9 +20,10 @@ io.on("connection", (socket) => {
 
     const mensagensDaSala = messages.filter((m) => m.sala === user.sala);
 
-    io.to(user.sala).emit("chatLog", {
+    socket.broadcast.to(user.sala).emit("chatLog", {
       usuario: user.usuario,
       mensagem: `${user.usuario} entrou`,
+      dataEpoch: dayjs().valueOf(),
     });
 
     io.to(user.socket_id).emit("roomMessages", mensagensDaSala);
@@ -44,6 +45,7 @@ io.on("connection", (socket) => {
     io.to(user.sala).emit("chatLog", {
       usuario: user.usuario,
       mensagem: `${user.usuario} saiu`,
+      dataEpoch: dayjs().valueOf(),
     });
   });
 

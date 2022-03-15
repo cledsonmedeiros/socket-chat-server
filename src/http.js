@@ -12,8 +12,6 @@ app.use(express.json());
 
 const httpServer = http.createServer(app);
 
-console.log(allowedOrigins);
-
 const io = new Server(httpServer, {
   cors: {
     origin: allowedOrigins,
